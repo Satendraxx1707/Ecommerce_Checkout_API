@@ -23,6 +23,8 @@ import java.math.BigDecimal;
 @RestController
 @RequestMapping("/api/payment")
 
+
+//  http://localhost:9099/api/payment    -->  for frontend connection
 // start
 public class PaymentController {
 
@@ -33,7 +35,7 @@ public class PaymentController {
     private OrderService orderService;
 
     // STEP 1: Create Razorpay Order -------------------->
-    @PostMapping("/create-order")
+        @PostMapping("/create-order")
     public PaymentOrderResponse createOrder(@RequestBody PurchaseDTO purchaseDTO) throws Exception {
 
         RazorpayClient client = new RazorpayClient(config.getKeyId(), config.getKeySecret());
@@ -60,8 +62,6 @@ public class PaymentController {
         return response;
     }
 
-
-
     // STEP 2: Verify Payment + SAVE ORDER INTO DB
 
     @PostMapping("/verify-payment")
@@ -69,6 +69,15 @@ public class PaymentController {
 
         String data = callback.getRazorpayOrderId() + "|" + callback.getRazorpayPaymentId();
         String generatedSignature = calculateHMAC(data, config.getKeySecret());
+
+
+ // ADD later for check
+
+        System.out.println("Generated: " + generatedSignature);
+        System.out.println("Received : " + callback.getRazorpaySignature());
+
+
+
 
         if (!generatedSignature.equals(callback.getRazorpaySignature())) {
             throw new RuntimeException("Payment Verification Failed!");

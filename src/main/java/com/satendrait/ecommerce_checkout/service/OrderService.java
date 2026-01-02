@@ -7,11 +7,16 @@ import com.satendrait.ecommerce_checkout.dto.PurchaseResponse;
 public interface OrderService {
 
     // OLD method for compatibility
-   // PurchaseResponse saveOrder(PurchaseDTO purchaseDTO);
+    // PurchaseResponse saveOrder(PurchaseDTO purchaseDTO);
 
     // NEW method for Razorpay
-    PurchaseResponse saveOrder(PurchaseDTO purchaseDTO,
+   public  PurchaseResponse saveOrder(PurchaseDTO purchaseDTO,
                                String razorpayOrderId,
-                               String razorpayPaymentId);
+                               String razorpayPaymentId) ;
+
+
+        //  Check -2 Later
+      //  System.out.println(">>> SAVE ORDER METHOD CALLED <<<");
+
 
 }

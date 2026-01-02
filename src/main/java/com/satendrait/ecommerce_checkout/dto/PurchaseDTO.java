@@ -20,7 +20,9 @@ public class PurchaseDTO {
     private List<OrderItemDTO> orderItems;
 }
 */
+ // for nowits okay In larning phase , later on need to change
 
+    
     private Customer customer;
     private Address shippingAddress;
     private Order order;

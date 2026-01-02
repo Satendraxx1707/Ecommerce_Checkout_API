@@ -14,13 +14,21 @@ public class CheckoutController {
 
     private final CheckoutService checkoutService;
 
+    // Constructor Injection
     public CheckoutController(CheckoutService checkoutService) {
         this.checkoutService = checkoutService;
     }
 
+
+    // http://localhost:9099/api/checkout/purchase  (Working)
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody PurchaseDTO purchase) {
 
-        return checkoutService.placeOrder(purchase);
+
+        // Call service layer to process order
+        PurchaseResponse response =  checkoutService.placeOrder(purchase);
+
+        // Return response back to frontend / Postman
+        return response;
     }
 }

@@ -1,8 +1,10 @@
 package com.satendrait.ecommerce_checkout.entity;
 
+import com.satendrait.ecommerce_checkout.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,8 +19,10 @@ public class Order {
     private int totalQuantity;
     private BigDecimal totalPrice;
     // Added later
+
+  @Enumerated(EnumType.STRING)
     @Column(name = "payment_status")
-    private String paymentStatus;
+    private PaymentStatus paymentStatus;
 
     @Column(name = "razorpay_payment_id")
     private String razorpayPaymentId;
@@ -26,15 +30,16 @@ public class Order {
     @Column(name = "razorpay_order_id")
     private String razorpayOrderId;
 
+  // # Mapping
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> orderItems;
+    private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+  @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToOne
+  @ManyToOne
     @JoinColumn(name = "address_id")
     private Address shippingAddress;
 
