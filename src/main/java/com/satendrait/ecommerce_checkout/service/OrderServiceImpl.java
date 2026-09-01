@@ -64,11 +64,11 @@ public class OrderServiceImpl implements OrderService {
         // 4. Save Order Items
         for (OrderItem item : purchase.getOrderItems()) {
             item.setOrder(order);
-            //  orderItemRepository.save(item);   ->❌ Not wrong, but unnecessary
+            //  orderItemRepository.save(item);   -> Not wrong, but unnecessary
 
             //order.setOrderItems(purchase.getOrderItems());   // used this
 
-            order.getOrderItems().add(item);      // ✅ add to owning side
+            order.getOrderItems().add(item);      //  add to owning side
         }
         // orderRepository.save(order);
         // Save ONLY parent (Hibernate handles children)
