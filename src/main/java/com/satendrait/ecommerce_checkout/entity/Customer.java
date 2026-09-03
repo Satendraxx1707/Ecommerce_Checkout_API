@@ -38,7 +38,7 @@ public class Customer {
     private Address shippingAddress;
 
 
-    // ✅ ADD THIS METHOD   -    add later Final
+    //  ADD THIS METHOD   -    add later Final
     public void add(Order order) {
         if (order != null) {
             orders.add(order);
