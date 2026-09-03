@@ -30,67 +30,36 @@ The application follows a layered architecture with separate Controller, Service
 
 ## Technologies Used
 
-| Technology | Purpose |
+## Technologies Used
 
-| Java 17 | Application development |
-| Spring Boot 3.2.0 | Backend framework |
-| Spring Web | REST API development |
-| Spring Data JPA | Database interaction |
-| Hibernate / JPA | ORM and entity mapping |
-| MySQL | Relational database |
-| Razorpay Java SDK | Payment gateway integration |
-| JSON | JSON request/response handling |
-| Bean Validation | Request validation |
-| Lombok | Reducing boilerplate code |
-| Maven | Dependency management and build |
+| Technology        | Purpose                                        
 
----
+ Java 17             Main programming language                      
+ Spring Boot 3.2.0  Backend development                            
+ Spring Web         Creating REST APIs                             
+ Spring Data JPA    Working with the database                     
+ Hibernate / JPA    Mapping Java objects with database tables      
+ MySQL              Storing application data                       
+ Razorpay Java SDK  Handling online payments                       
+ JSON               Sending and receiving API data                 
+ Bean Validation    Validating request data                        
+ Lombok             Reducing boilerplate code                      
+ Maven              Managing dependencies and building the project 
+
 
 ## Project Structure
 
-src
-└── main
-    ├── java
-    │   └── com.satendrait.ecommerce_checkout
-    │       │
-    │       ├── config
-    │       │   └── RazorpayConfig.java
-    │       │
-    │       ├── controller
-    │       │   ├── CheckoutController.java
-    │       │   ├── PaymentController.java
-    │       │   ├── OrderQueryController.java
-    │       │   └── HelloController.java
-    │       │
-    │       ├── dto
-    │       │   ├── PurchaseDTO.java
-    │       │   ├── PurchaseResponse.java
-    │       │   ├── PaymentCallbackDTO.java
-    │       │   └── PaymentOrderResponse.java
-    │       │
-    │       ├── entity
-    │       │   ├── Customer.java
-    │       │   ├── Address.java
-    │       │   ├── Order.java
-    │       │   └── OrderItem.java
-    │       │
-    │       ├── repository
-    │       │   ├── CustomerRepository.java
-    │       │   ├── AddressRepository.java
-    │       │   ├── OrderRepository.java
-    │       │   └── OrderItemRepository.java
-    │       │
-    │       ├── service
-    │       │   ├── CheckoutService.java
-    │       │   ├── CheckoutServiceImpl.java
-    │       │   ├── OrderService.java
-    │       │   └── OrderServiceImpl.java
-    │       │
-    │       ├── EcommerceCheckoutApplication.java
-    │       └── PaymentStatus.java
-    │
-    └── resources
-        └── application.properties
+The project is divided into different packages based on their responsibilities.
+
+* **config** – Contains Razorpay configuration.
+* **controller** – Contains REST controllers for checkout, payment, orders, and basic API testing.
+* **dto** – Contains request and response classes used by the APIs.
+* **entity** – Contains the main database entities such as Customer, Address, Order, and OrderItem.
+* **repository** – Contains JPA repositories used to access and manage database data.
+* **service** – Contains the main business logic related to checkout and orders.
+* **EcommerceCheckoutApplication.java** – Main class used to start the Spring Boot application.
+* **PaymentStatus.java** – Contains the payment status values used in the application.
+* **application.properties** – Contains application and database configuration.
 
 ---
 
