@@ -36,7 +36,7 @@ public class CheckoutServiceImpl implements CheckoutService {
 
         System.out.println(">>> CheckoutService.placeOrder CALLED <<<");
 
-        // TODO: Next step - yahi pe DB save, Razorpay order create karenge
+        //  Next step - yahi pe DB save, Razorpay order create karenge
 
         // For now: randomly tracking number + fake Razorpay orderId generateed
 
